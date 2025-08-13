@@ -1,8 +1,10 @@
-FROM node:18.16-slim
+FROM node:18.17
 
 # Update package lists and install security updates
 RUN apt-get updatec -y && npm install
 
+#Maintaner Image
+LABEL email="shafar032@gmail.com"
 
 # copy file
 ADD . /app
