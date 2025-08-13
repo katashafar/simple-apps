@@ -1,15 +1,15 @@
-FROM node:18.17
+FROM node:20-alpine
 
 LABEL email="shafar032@gmail.com"
 
 # Set working directory
 WORKDIR /app
 
-#copy ifle image
-ADD . /app
+#copy file image
+COPY . /app
 
 # Install dependencies
-RUN apt update -y && npm install
+RUN npm install && npm audit fix --force
 
 # Command to run the app
 CMD ["npm", "start"]
