@@ -1,16 +1,21 @@
 FROM node:18.17
 
-# Update package lists and install security updates
-RUN apt-get update -y && npm install
-
-#Maintaner Image
 LABEL email="shafar032@gmail.com"
 
-# copy file
-ADD . /app
+# Set working directory
+WORKDIR /app
 
-#perintah yang dijalan kan ketika container dijalankan
-CMD ["npm", "start"]
+# Copy package.json and package-lock.json first (for better caching)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the app code
+COPY . .
 
 # Expose the port the app runs on
 EXPOSE 3000
+
+# Command to run the app
+CMD ["npm", "start"]
