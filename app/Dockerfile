@@ -1,5 +1,8 @@
 FROM node:20-alpine
 
+# Update Alpine packages to fix vulnerabilities
+RUN apk update && apk upgrade
+
 LABEL email="shafar032@gmail.com"
 
 # Set working directory
