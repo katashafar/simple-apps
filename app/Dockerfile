@@ -5,17 +5,14 @@ LABEL email="shafar032@gmail.com"
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json first (for better caching)
-COPY package*.json ./
+#copy ifle image
+ADD . /app
 
 # Install dependencies
-RUN npm install
-
-# Copy the rest of the app code
-COPY . .
-
-# Expose the port the app runs on
-EXPOSE 3000
+RUN apt update -y && npm install
 
 # Command to run the app
 CMD ["npm", "start"]
+
+# Expose the port the app runs on
+EXPOSE 3000
