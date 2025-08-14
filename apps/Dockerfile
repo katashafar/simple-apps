@@ -3,10 +3,10 @@ FROM node:18.17
 LABEL email="shafar032@gmail.com"
 
 #Set working directory
-WORKDIR /app
+WORKDIR /apps
 
 ##copy file image
-ADD . /app
+ADD . /apps
 
 #Install dependencies
 RUN apt update -y && npm install
