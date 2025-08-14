@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:18
 
 # Update Alpine packages to fix vulnerabilities
 RUN apk update && apk upgrade
