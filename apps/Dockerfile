@@ -1,21 +1,18 @@
-FROM node:18
-
-# Update Alpine packages to fix vulnerabilities
-RUN apk update && apk upgrade
+FROM node:18.17
 
 LABEL email="shafar032@gmail.com"
 
-# Set working directory
+#Set working directory
 WORKDIR /app
 
-#copy file image
-COPY . /app
+##copy file image
+ADD . /app
 
-# Install dependencies
-RUN npm install && npm audit fix --force
+#Install dependencies
+RUN apt update -y && npm install
 
-# Command to run the app
+#Command to run the app
 CMD ["npm", "start"]
 
-# Expose the port the app runs on
+#Expose the port the app runs on
 EXPOSE 3000
