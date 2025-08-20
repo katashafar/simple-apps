@@ -1,5 +1,6 @@
 # Ignore everything
-testing
+.testing
+.env
 
 # Except the database folder
 !database/
