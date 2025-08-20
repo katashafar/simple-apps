@@ -2,6 +2,7 @@ services:
   app-simpleapps:
     container_name: ct-simpleapps
     build: ./apps
+    image: katashafar/simple-app
     ports:
       - "10000:3000"
     restart: always
