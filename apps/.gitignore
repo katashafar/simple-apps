@@ -1,0 +1,6 @@
+# Ignore everything
+testing
+
+# Except the database folder
+!database/
+!app.js
